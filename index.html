@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rastgele Sayı Üretici</title>
+</head>
+<body>
+<div>
+    <h2>Rastgele Sayı Üretici</h2>
+    <label for="min">Minimum Değer:</label>
+    <input type="range" id="min" name="min" min="0" max="100" value="0">
+    <button onclick="selectMin()">Seç</button>
+    <input type="text" id="minGöster" disabled>
+    <br><br>
+    <label for="max">Maksimum Değer:</label>
+    <input type="range" id="max" name="max" min="0" max="100" value="100">    
+    <button onclick="selectMax()">Seç</button>
+    <input type="text" id="maxGöster" disabled>
+    <br><br>
+    <button onclick="rasgeleSayiUret()" type="button">Uret</button>
+    <div id="selectedMinMax"></div>
+    <br><br>    
+    <hr>
+    Rasgele sayi : <input type="text" id="sonuc" disabled>
+   
+</div>
+
+<script>
+    function selectMin() {
+        const min = parseInt(document.getElementById("min").value);        
+        document.getElementById("minGöster").value = min;
+    }
+
+    function selectMax() {        
+        const max = parseInt(document.getElementById("max").value);
+        document.getElementById("maxGöster").value = max;
+    }
+
+    function rasgeleSayiUret() {
+        const min = parseInt(document.getElementById("min").value);
+        const max = parseInt(document.getElementById("max").value);
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.getElementById("sonuc").value = randomNumber;
+    }
+</script>
+</body>
+</html>
